@@ -1,6 +1,8 @@
 export type TCharacter = {
   name: string
   up_attribute: string
+  element: string
+  weaponType: string
   weapons: {
     name: string
     base_atk: string
@@ -20,8 +22,8 @@ export type TCharacter = {
     attribute_focuses: string
     sets: {
       name: string
-      bonus_1: string
-      bonus_2: string
+      '2_piece': string
+      '4_piece'?: string
     }[]
   }
   constellation: {
