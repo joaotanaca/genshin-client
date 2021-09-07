@@ -11,7 +11,7 @@ const CharacterSchema = new mongoose.Schema<TCharacter>({
     type: String,
     required: [true, 'O elemento do personagem é necessário'],
   },
-  weaponType: {
+  weapon_type: {
     type: String,
     required: [true, 'O elemento do personagem é necessário'],
   },
