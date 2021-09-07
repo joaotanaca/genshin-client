@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Character from '../../database/Models/Character'
-import { TCharacter } from '../../types/Models'
+import connect from '../../database/connect'
 
 type Data = {
-  name: string | TCharacter
+  data: any
 }
 
 export default async function handler(
@@ -12,10 +12,12 @@ export default async function handler(
 ) {
   const { method } = req
 
+  await connect()
+  
   switch (method) {
     case 'GET':
-      res.status(200).json({ name: 'John Doe' })
-      break
+      const characters = await Character.find({})
+      return res.status(200).json({ data: characters })
     case 'POST':
       const character = await Character.create({
         name: 'Shogun Raiden',
@@ -71,9 +73,7 @@ export default async function handler(
           },
         ],
       })
-      res.status(200).json({ name: character })
-      break
-
+      return res.status(200).json({ data: character })
     default:
       break
   }
