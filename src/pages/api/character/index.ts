@@ -26,7 +26,7 @@ export default async function handler(
           name: 'Shogun Raiden',
           up_attribute: 'Energy Recharge',
           element: 'Pyro',
-          weaponType: 'Pyro',
+          weapon_type: 'Pyro',
           weapons: [
             {
               name: 'Engulfing Lightning',

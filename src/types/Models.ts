@@ -2,7 +2,7 @@ export type TCharacter = {
   name: string
   up_attribute: string
   element: string
-  weaponType: string
+  weapon_type: string
   weapons: {
     name: string
     base_atk: string
