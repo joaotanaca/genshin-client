@@ -16,7 +16,7 @@ export default async function handler(
 
   switch (method) {
     case 'GET':
-      const characters = await Character.find()
+      const characters = await Character.find()\
       return res.status(200).json(characters)
     case 'POST':
       try {

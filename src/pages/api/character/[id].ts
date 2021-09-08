@@ -4,24 +4,28 @@ import Character from 'models/Character'
 import connect from 'database/connect'
 import { TCharacter } from 'types/Models'
 
-type Data = TCharacter[] | { errors: any }
+type Data =
+  | TCharacter
+  | {
+      errors: any
+    }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { method } = req
+  const { method, query } = req
 
   await connect()
 
   switch (method) {
     case 'GET':
-      const characters = await Character.find()
-      return res.status(200).json(characters)
-    case 'POST':
+      const character = await Character.findById(query.id)
+      return res.status(200).json(character)
+    case 'PUT':
       try {
-        const character = await Character.create({
-          name: 'Shogun Raiden',
+        const character = await Character.findByIdAndUpdate(query.id, {
+          name: 'Shogun RaidenB',
           up_attribute: 'Energy Recharge',
           element: 'Pyro',
           weapon_type: 'Pyro',
@@ -76,6 +80,13 @@ export default async function handler(
             },
           ],
         })
+        return res.status(200).json(character)
+      } catch (err: any) {
+        return res.status(400).json(err)
+      }
+    case 'DELETE':
+      try {
+        const character = await Character.findByIdAndDelete(query.id)
         return res.status(200).json(character)
       } catch (err: any) {
         return res.status(400).json(err)
