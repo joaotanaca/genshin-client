@@ -10,10 +10,16 @@ type Data =
       errors: any
     }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+/**
+ * @swagger
+ * /api/character/[id]:
+ *   get:
+ *     description: Returns the character
+ *     responses:
+ *       200:
+ *         description: hello world
+ */
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { method, query } = req
 
   await connect()
@@ -96,3 +102,4 @@ export default async function handler(
       break
   }
 }
+export default handler
