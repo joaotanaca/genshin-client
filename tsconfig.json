@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "database/*": ["./src/database/*"],
       "models/*": ["./src/database/Models/*"],
       "types/*": ["./src/types/*"],
