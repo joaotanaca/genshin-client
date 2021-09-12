@@ -1,6 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import HeadComponent from '../components/Head'
-import Global from '../styles/global'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -10,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="pt-br">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
@@ -23,7 +21,6 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <Global />
         <body>
           <Main />
           <NextScript />
