@@ -1,17 +1,40 @@
-import styled from "styled-components"
-import HeadComponent from "../../../components/Head"
+import styled from 'styled-components'
+import HeadComponent from '../../../components/Head'
 
 const StarsBackground = styled.div`
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(0, #11c2aa, #1c544b);
+  height: 95vh;
+  position: relative;
+  background: linear-gradient(#00696B, #00BCAA);
+  overflow: hidden;
+  box-shadow: 0px 16px 24px rgba(0, 188, 170, 0.8);
+`
 
-  div.stars {
-    width: 3px;
-    height: 3px;
-    color: #000000;
-    border-radius: 50%;
+const Stars = styled.div`
+  width: 150vw;
+  height: 200vh;
+  position: absolute;
+  background-size: cover;
+  background-image: url('/Stars.svg');
+  background-repeat: repeat-y;
+
+  animation: anim-stars 60s linear infinite;
+
+  @keyframes anim-stars {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-100vh);
+    }
   }
+`
+
+const Nebula = styled.div`
+  width: 110vw;
+  height: 110vh;
+  position: absolute;
+  background-size: cover;
+  background-image: url('/Nebula.svg');
 `
 
 const TestText = styled.div`
@@ -30,17 +53,16 @@ const TestText = styled.div`
 function Index() {
   return (
     <>
-    <HeadComponent 
-    title="Character"
-    />
-    <StarsBackground>
-      <div className="stars" />
-      <TestText>
-        <p>Hello App!</p>
-      </TestText>
-    </StarsBackground>
+      <HeadComponent title="Genshin Impact Rolls" />
+      <StarsBackground>
+        <Stars />
+        <Nebula />
+        <TestText>
+          <h4>Genshin</h4>
+          <p>Impact</p>
+        </TestText>
+      </StarsBackground>
     </>
-
   )
 }
 
