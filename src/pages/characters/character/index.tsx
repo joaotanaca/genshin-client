@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import HeadComponent from "../../../components/Head"
+import styled from 'styled-components'
+import HeadComponent from '../../../components/Head'
 
 const StarsBackground = styled.div`
   height: 100%;
@@ -30,17 +30,14 @@ const TestText = styled.div`
 function Index() {
   return (
     <>
-    <HeadComponent 
-    title="Character"
-    />
-    <StarsBackground>
-      <div className="stars" />
-      <TestText>
-        <p>Hello App!</p>
-      </TestText>
-    </StarsBackground>
+      <HeadComponent title="Character" />
+      <StarsBackground>
+        <div className="stars" />
+        <TestText>
+          <p>Hello App!</p>
+        </TestText>
+      </StarsBackground>
     </>
-
   )
 }
 
