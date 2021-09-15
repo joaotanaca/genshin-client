@@ -1,7 +1,5 @@
-import type { NextPage } from 'next'
 import styled from 'styled-components'
-import HeadComponent from '../components/Head'
-
+import HeadComponent from '../../../components/Head'
 
 const StarsBackground = styled.div`
   height: 95vh;
@@ -52,7 +50,7 @@ const TestText = styled.div`
   }
 `
 
-const Home: NextPage = () => {
+function Index() {
   return (
     <>
       <HeadComponent title="Genshin Impact Rolls" />
@@ -60,11 +58,12 @@ const Home: NextPage = () => {
         <Stars />
         <Nebula />
         <TestText>
-          <p>Genshin Impact Rolls</p>
+          <h4>Genshin</h4>
+          <p>Impact</p>
         </TestText>
       </StarsBackground>
     </>
   )
 }
 
-export default Home
+export default Index
